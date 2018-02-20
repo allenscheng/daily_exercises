@@ -6,5 +6,5 @@ people = [
   {name: "alice", age: 56, gender: "female"},
   {name: "adam", age: 15, gender: "male"}
 ]
-p people.sort {|x, y| [x[:age], x[:name]] <=> [y[:age], y[:name]]}
+puts people.sort {|x, y| [x[:age], x[:name]] <=> [y[:age], y[:name]]}
 
