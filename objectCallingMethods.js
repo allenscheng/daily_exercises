@@ -6,5 +6,4 @@ let math = {
     return num - 2;
   }
 };
-// let math = obj.new;
 console.log(math.add(math.sub(6)));

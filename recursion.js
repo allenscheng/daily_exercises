@@ -5,7 +5,7 @@ function word(num) {
     word(num - 1);
   }
 }
-word(15);
+// word(15);
 
 // Write a recursive function that prints out all even numbers from 0 to 100.
 function counting(num) {
@@ -16,20 +16,18 @@ function counting(num) {
     counting(num + 1);
   }
 }
-counting(0);
+// counting(0);
 
 // Write a recursive function that adds the sum of all numbers from 1 to 1000.
-let sumOdds = 0;
-function sumOfOdds(num) {
+let sumNum = 0;
+function sumOfNum(num) {
   if (num <= 1000) {
-    if (num % 2 !== 0) {
-      sumOdds += num;
-    }
-    sumOfOdds(num + 1);
+    sumNum += num;
+    sumOfNum(num + 1);
   }
-  return sumOdds;
+  return sumNum;
 }
-console.log(sumOfOdds(0));
+// console.log(sumOfNum(0));
 
 // Write a recursive function that accepts an array of numbers and returns the sum.
 function arrSum(array) {
@@ -39,7 +37,7 @@ function arrSum(array) {
     return array[0] + arrSum(array.slice(1));
   }
 }
-console.log(arrSum([1, 2, 3]));
+// console.log(arrSum([1, 2, 3]));
 
 // Write a recursive function that accepts a number and returns its factorial.
 let factorial = 1;
@@ -50,4 +48,23 @@ function fact(num) {
   }
   return factorial;
 }
-console.log(fact(5));
+// console.log(fact(5));
+
+// Fibonacci numbers are numbers that follow this pattern: 1, 1, 2, 3, 5, 8, 13, 21, 34, ... that is, each number is the sum of the two immediate numbers that precede it. Write a recursive function that prints out the list of fibonacci numbers up to 987.
+let fiboNum = 1;
+function fibo(num) {
+  if (num <= 987) {
+    console.log(fiboNum);
+    fiboNum += num;
+    fibo(num + fiboNum);
+  }
+  // console.log(fiboNum);
+}
+console.log(fibo(0));
+
+// Write a recursive function that reverses a string.
+// let revString = "";
+// function reverseString(str) {}
+// console.log(reverseString("Hello"));
+// 3. Write a recursive function that accepts two numbers (a numerator and denominator), and returns the remainder if you divide the numerator by the denominator. The catch: Do not use the modulo operator!
+// 4. Write a recursive function that accepts two numbers and calculates one by the power of the other. For example, if the numbers were 2 and 5, it would calculate 25. Do not use any built-in power operations provided by your computer language.
