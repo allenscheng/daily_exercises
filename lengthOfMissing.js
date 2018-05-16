@@ -1,22 +1,19 @@
-function missing(arrayOfArray) {
-  let num = [];
-  let missing = 0;
-  var count = 1;
-  for (let i = 0; i < arrayOfArray.length; i++) {
-    num.push(arrayOfArray[i].length);
+function getLengthOfMissingArray(arrayOfArrays) {
+  if (arrayOfArrays === null) {
+    return 0;
   }
-  let sorting = num.sort();
-  for (let j = 0; j <= arrayOfArray.length; j++) {
-    if (num[j] !== count) {
-      missing = count;
-      break;
+  for (let i = 0; i < arrayOfArrays.length; i++) {
+    if (arrayOfArrays[i] === null || arrayOfArrays[i].length === 0) {
+      return 0;
     }
-    count += 1;
   }
-  return missing;
+  arrayOfArrays = arrayOfArrays.sort(function(a, b) {
+    return a.length > b.length ? 1 : -1;
+  });
+  for (let i = 1; i < arrayOfArrays.length; i++) {
+    if (arrayOfArrays[i].length !== arrayOfArrays[i - 1].length + 1) {
+      return arrayOfArrays[i - 1].length + 1;
+    }
+  }
+  return 0;
 }
-console.log(missing([[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]));
-
-// let num = [[[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]];
-// console.log(num.length);
-// console.log(num[0][0].length);

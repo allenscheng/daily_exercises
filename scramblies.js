@@ -1,25 +1,27 @@
 function scramble(str1, str2) {
-  var matchWord = "";
-  for (var i = 0; i < str2.length; i++) {
-    for (var j = 0; j < str1.length; j++) {
-      if (str1[j] === str2[i]) {
-        matchWord += str2[i];
-        break;
-      }
+  var array1 = str1.split("").sort();
+  var array2 = str2.split("").sort();
+  var i = 0;
+  for (var x = 0; i < array2.length && x <= array1.length; x++) {
+    if (array2[i] === array1[x]) {
+      i++;
     }
   }
-  if (matchWord === str2) {
-    return true;
-  } else {
-    return false;
-  }
+  return x <= array1.length;
 }
-
-console.log(scramble("rkqodlw", "world"));
-console.log(scramble("cedewaraaossoqqyt", "codewars"));
-console.log(scramble("katas", "steak"));
 console.log(scramble("scriptjava", "javascript"));
-console.log(scramble("scriptingjava", "javascript"));
-console.log(scramble("scriptsjava", "javascripts"));
-console.log(scramble("jscripts", "javascript"));
-console.log(scramble("aabbcamaomsccdd", "commas"));
+
+function scramble(str1, str2) {
+  var map = {};
+  for (var i in str1) {
+    map[str1[i]] ? map[str1[i]]++ : (map[str1[i]] = 1);
+  }
+  for (var i in str2) {
+    if (!map[str2[i]]) {
+      return false;
+    }
+    map[str2[i]]--;
+  }
+  return true;
+}
+console.log(scramble("scriptjava", "javascript"));
